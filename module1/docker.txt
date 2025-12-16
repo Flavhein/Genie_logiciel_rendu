@@ -1,3 +1,0 @@
-TP docker
-suite TP docker
-fin TP docker
