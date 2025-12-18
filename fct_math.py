@@ -11,12 +11,12 @@ def moyenne(nombres):
     taille=len(nombres)
     return sommeVar/taille
 
-def getListMax(nombres,max):
-    listMax=[]
+def getListSupTo(nombres,sup):
+    listSup=[]
     for nombre in nombres:
-        if nombre>max:
-            listMax.append(nombre)
-    return listMax
+        if nombre>sup:
+            listSup.append(nombre)
+    return listSup
 
 def isPrime(nombre):
     if nombre<2:
