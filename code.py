@@ -7,9 +7,9 @@ def somme(nombres):
     return sum(nombres)
 
 def moyenne(nombres):
-    somme=somme(nombres)
+    sommeVar=somme(nombres)
     taille=len(nombres)
-    return somme/taille
+    return sommeVar/taille
 
 def getListMax(nombres,max):
     listMax=[]
@@ -32,18 +32,18 @@ def listToSquare(nombres):
         nombresSquare.append(toSquare(nombre))
     return nombresSquare
 
-def z(a,b):
-    while b!=0:
-        t=b
-        b=a%b
-        a=t
-    return a
+def pgdc(nomnbreA,nombreB):
+    while nombreB!=0:
+        temp=nombreB
+        b=nomnbreA%nombreB
+        nomnbreA=temp
+    return nomnbreA
 
 profil={'nom':'Jean','age':25,'ville':'Paris'}
 nombres=[12,5,8,130,44,7,19,23,2]
 
-print(h(l))
-print(k(l,10))
-print(m([1,2,3,4,5]))
-print(p(17))
-print(z(48,18))
+print(moyenne(nombres))
+print(getListMax(nombres,10))
+print(listToSquare([1,2,3,4,5]))
+print(isPrime(17))
+print(pgdc(48,18))
