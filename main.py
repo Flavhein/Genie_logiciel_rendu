@@ -1,4 +1,8 @@
-from fct_math import *
+from fct_math.division import *
+from fct_math.prime import *
+from fct_math.manage_list import *
+from fct_math.square import *
+from fct_math.statistic import *
 
 nombres=[12,5,8,130,44,7,19,23,2]
 
