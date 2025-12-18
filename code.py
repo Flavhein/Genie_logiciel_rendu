@@ -26,11 +26,11 @@ def isPrime(nombre):
             return False
     return True
 
-def m(l):
-    r=[]
-    for i in l:
-        r.append(f(i))
-    return r
+def listToSquare(nombres):
+    nombresSquare=[]
+    for nombre in nombres:
+        nombresSquare.append(toSquare(nombre))
+    return nombresSquare
 
 def z(a,b):
     while b!=0:
