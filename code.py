@@ -3,16 +3,13 @@ import math
 def toSquare(x):
     return x*x
 
-def g(list):
-    t=0
-    for i in list:
-        t=t+i
-    return t
+def somme(nombres):
+    return sum(nombres)
 
-def h(l):
-    s=g(l)
-    n=len(l)
-    return s/n
+def moyenne(nombres):
+    somme=somme(nombres)
+    taille=len(nombres)
+    return somme/taille
 
 def k(l,m):
     r=[]
