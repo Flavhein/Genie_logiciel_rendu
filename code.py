@@ -39,8 +39,8 @@ def z(a,b):
         a=t
     return a
 
-d={'nom':'Jean','age':25,'ville':'Paris'}
-l=[12,5,8,130,44,7,19,23,2]
+profil={'nom':'Jean','age':25,'ville':'Paris'}
+nombre=[12,5,8,130,44,7,19,23,2]
 
 print(h(l))
 print(k(l,10))
