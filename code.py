@@ -11,12 +11,12 @@ def moyenne(nombres):
     taille=len(nombres)
     return somme/taille
 
-def k(l,m):
-    r=[]
-    for i in l:
-        if i>m:
-            r.append(i)
-    return r
+def getListMax(nombres,max):
+    listMax=[]
+    for nombre in nombres:
+        if nombre>max:
+            listMax.append(nombre)
+    return listMax
 
 def p(n):
     if n<2:
@@ -40,7 +40,7 @@ def z(a,b):
     return a
 
 profil={'nom':'Jean','age':25,'ville':'Paris'}
-nombre=[12,5,8,130,44,7,19,23,2]
+nombres=[12,5,8,130,44,7,19,23,2]
 
 print(h(l))
 print(k(l,10))
