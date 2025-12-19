@@ -1,6 +1,6 @@
 const bank = require('./bank.js');
 //const bankDAO = require('./bankDAO.js');
-//const transfer = require('./bankTransfer.js');
+const transfer = require('./bankTransfer.js');
 
 
 test('getBalance mock function for retrieveBalance', () => {
@@ -14,14 +14,27 @@ test('getBalance mock function for retrieveBalance', () => {
     expect(result_balance).toBe(expected_accountId);
 });
 
-test('transferMoney mock function for transfer', () => {
-    const espected_amount = 78;
-    const expected_accountIdA = 45;
-    const expected_accountIdB = 56
-    const mock_transfer = jest.fn((expected_accountIdA,expected_accountIdB,espected_amount)=> console.log("out") );
+test('transferMoney mock function for transfer, reject', () => {
+    const expected_amount = 78;
+    const Id_receive = 45;
+    const Id_give = 56
+    const mock_debit = jest.fn(()=>console.log("out_debit"));
+    const mock_transfer = jest.fn(()=> Promise.reject());
+    
+    bank.transferMoney(mock_debit,mock_transfer,Id_give,Id_receive,expected_amount);
+    expect(mock_transfer).toHaveBeenCalledWith(Id_give,expected_amount);
+    //expect(mock_debit).toHaveBeenCalledTimes(0);
+});
 
-    bank.transferMoney(mock_transfer,expected_accountIdA,expected_accountIdB,espected_amount);
-    expect(mock_transfer).toHaveBeenCalled();
-    expect(mock_transfer).toHaveBeenCalledWith(expected_accountIdA,expected_accountIdB,espected_amount);
-    //expect(mock_transfer).toBe((expected_accountIdA,expected_accountIdB,espected_amount));
+
+test('transferMoney mock function for transfer, resolve', () => {
+    const expected_amount = 20;
+    const Id_receive = 45;
+    const Id_give = 56
+    const mock_debit = jest.fn(()=>console.log("out_debit"));
+    const mock_transfer = jest.fn(()=> Promise.resolve());
+    
+    bank.transferMoney(mock_debit,mock_transfer,Id_give,Id_receive,expected_amount);
+    expect(mock_transfer).toHaveBeenCalledWith(Id_give,expected_amount);
+    expect(mock_debit).toHaveBeenCalledWith(Id_receive,expected_amount);
 });

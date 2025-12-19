@@ -4,9 +4,11 @@ const bank = {
         return callBack(accountId);
     },
 
-    transferMoney(callBack,accountIdDebit,accountIdCredit,amount){
+    transferMoney(debitCall,transferCall,accountIdCredit,accountIdDebit,amount){
         //bankDAO.transfer(accountIdDebit,accountIdCredit,amount);
-        callBack(accountIdDebit,accountIdCredit,amount);
+        transferCall(accountIdCredit,amount)
+        .then(debitCall(accountIdDebit,amount))
+        .catch(() => {console.log("amount not correct");})
     }
 }
 

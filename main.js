@@ -10,8 +10,9 @@ function main(){
     bankDAO.addAccount(accountIdBob,amount+20);
     ret = bank.getBalance(bankDAO.retrieveBalance,accountIdAlice);
     console.log(ret);
-    bank.transferMoney(transfer,accountIdBob,accountIdAlice,amount);
+    bank.transferMoney(bankDAO.debitAccount,transfer,accountIdAlice,accountIdBob,amount);
     bank.getBalance(bankDAO.retrieveBalance,accountIdAlice);
+
 }
 
 main();
