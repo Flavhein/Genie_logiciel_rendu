@@ -1,7 +1,8 @@
-function isValide(mdp) {    
-    if (mdp.length<8){return false}
-    if (!/\d/.test(mdp)){return false}
-    if (!/[A-Za-z]/.test(mdp)){return false}
+function isValide(mdp,minDigit,minLetter,newRules=[/./]) {
+    if (mdp.length < minDigit+minLetter){return false}
+    if ((mdp.match(/\d/g) || []).length<minDigit){return false}
+    if ((mdp.match(/[A-Za-z]/g) || []).length<minLetter){return false}
+    for (let rule of newRules){if (!rule.test(mdp)){return false}}
     return true
 }
 
