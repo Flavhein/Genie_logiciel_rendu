@@ -1,7 +1,14 @@
-function isLongEnough(mdp) {
+function isValide(mdp) {
     if (mdp.length < 8) {
         return false
     }
-    return true
+
+    let regex = /\d/;
+    if (!regex.test(mdp)){
+        return false
+    }
+    return true 
 }
-module.exports = isLongEnough
+
+module.exports = isValide;
+
