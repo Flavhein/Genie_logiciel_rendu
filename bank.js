@@ -1,7 +1,7 @@
 const bank = {
-    getBalance(callBack) {
+    getBalance(callBack,accountId) {
     //    bankDAO.retrieveBalance();
-        callBack();
+        return callBack(accountId);
     }
 }
 module.exports = bank;
