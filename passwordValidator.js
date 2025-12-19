@@ -1,5 +1,7 @@
 function isValide(mdp) {    
-    return mdp.length>=8;
+    if (mdp.length<8){return false}
+    if (!/\d/.test(mdp)){return false}
+    return true
 }
 
 module.exports = isValide;
