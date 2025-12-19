@@ -3,11 +3,15 @@ const bank=require('./bank.js');
 const transfer=require('./bankTransfer.js')
 
 function main(){
-    let accountId = 346;
+    let accountIdAlice = 346;
     let amount = 12;
-    ret = bank.getBalance(bankDAO.retrieveBalance,accountId);
+    let accountIdBob = 567;
+    bankDAO.addAccount(accountIdAlice,amount);
+    bankDAO.addAccount(accountIdBob,amount+20);
+    ret = bank.getBalance(bankDAO.retrieveBalance,accountIdAlice);
     console.log(ret);
-    bank.transferMoney(transfer,accountId,amount)
+    bank.transferMoney(transfer,accountIdBob,accountIdAlice,amount);
+    bank.getBalance(bankDAO.retrieveBalance,accountIdAlice);
 }
 
 main();

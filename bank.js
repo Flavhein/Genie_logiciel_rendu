@@ -1,12 +1,12 @@
 const bank = {
     getBalance(callBack,accountId) {
-    //    bankDAO.retrieveBalance();
+        //bankDAO.retrieveBalance();
         return callBack(accountId);
     },
 
-    transferMoney(callBack,accountId,amount){
-    //bankDAO.transfer(accountId,amount);
-        callBack(accountId,amount);
+    transferMoney(callBack,accountIdDebit,accountIdCredit,amount){
+        //bankDAO.transfer(accountIdDebit,accountIdCredit,amount);
+        callBack(accountIdDebit,accountIdCredit,amount);
     }
 }
 
