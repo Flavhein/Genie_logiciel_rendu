@@ -3,8 +3,13 @@ function isValide(mdp) {
         return false
     }
 
-    let regex = /\d/;
-    if (!regex.test(mdp)){
+    let regexDigit = /\d/;
+    if (!regexDigit.test(mdp)){
+        return false
+    }
+
+    var regexLetter = /[a-zA-Z]/g;
+    if (!regexLetter.test(mdp)){
         return false
     }
     return true 
