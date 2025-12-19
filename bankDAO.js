@@ -1,7 +1,7 @@
-export const bankDAO = {
+const bankDAO = {
     balance : 1,
     retrieveBalance() {
-        console.log("Retrieve Balance : "+this.balance);
+        console.log("Retrieve Balance : "+bankDAO.balance);
     }
 };
-
+module.exports = bankDAO;

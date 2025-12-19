@@ -1,7 +1,8 @@
-import {bank} from './bank.js'
+const bankDAO=require('./bankDAO.js');
+const bank=require('./bank.js');
 
 function main(){
-    bank.getBalance()
+    bank.getBalance(bankDAO.retrieveBalance);
 }
 
 main();

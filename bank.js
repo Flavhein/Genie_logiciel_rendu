@@ -1,7 +1,7 @@
-import {bankDAO} from './bankDAO.js'
-
-export const bank ={
-    getBalance() {
-        bankDAO.retrieveBalance();
+const bank = {
+    getBalance(callBack) {
+    //    bankDAO.retrieveBalance();
+        callBack();
     }
 }
+module.exports = bank;
