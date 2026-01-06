@@ -2,6 +2,7 @@ import { ACCOUNT_LIST } from "./database.mjs";
 import { queryDatabase } from "./queryDatabase.mjs";
 import {Account} from "./account.mjs";
 
+
 export const accountCommandDAO = {
     insertAccount(account) {
         ACCOUNT_LIST.push(account);
@@ -21,5 +22,5 @@ export const accountCommandDAO = {
     updateDBQ(account) {
         let index = queryDatabase.accountSummaryList.findIndex(acc => acc.id===account.id);
         queryDatabase.accountSummaryList[index]=account;
-    }
+    },
 };
