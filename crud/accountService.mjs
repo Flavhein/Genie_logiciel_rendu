@@ -11,12 +11,10 @@ export const accountService = {
     return accountDAO.retrieveAccountList();
   },
   saveAccount(id, lastName, firstName) {
-    //let account=this.getAccount(id);
-    //account.firstName=firstName;
-    //account.lastName=lastName;
-
-    const newAccount = new Account(id, lastName, firstName);
-    accountDAO.updateAccount(newAccount);
+    let account=accountDAO.restore(id);
+    account.firstName=firstName;
+    account.lastName=lastName;
+    accountDAO.updateAccount(account);
   },
   getAccount(id) {
     return accountDAO.retrieveAccount(id);

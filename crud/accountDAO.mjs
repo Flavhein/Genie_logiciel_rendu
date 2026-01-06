@@ -23,7 +23,13 @@ export const accountDAO = {
   retrieveAccount(id) {
     const ACC = ACCOUNT_LIST.find(acc => acc.id===id);
     let name = ACC.firstName + " " + ACC.lastName;
-    return {id : ACC.id, name : name};
+    return {id : ACC.id, name : name, creationDate : ACC.creationDate};
   },
+
+  restore(id){
+    const account = ACCOUNT_LIST.find(acc => acc.id===id);
+    const newAccount = new Account(account.id, account.lastName, account.firstName, account.creationDate);
+    return newAccount;
+  }
 };
 

@@ -3,8 +3,10 @@ import {Account} from "./account.mjs";
 
 export const accountCommand = {
     saveAccount(id, lastName, firstName) {
-        const newAccount = new Account(id, lastName, firstName);
-        accountCommandDAO.updateAccount(newAccount);
+        let account=accountCommandDAO.restore(id);
+        account.firstName=firstName;
+        account.lastName=lastName;
+        accountCommandDAO.updateAccount(account);
     },
     addAccount(lastName, firstName) {
           const newAccount = new Account(null, lastName, firstName);

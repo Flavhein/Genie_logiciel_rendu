@@ -1,4 +1,5 @@
 import { ACCOUNT_LIST } from "./database.mjs";
+import {Account} from "./account.mjs";
 
 export const accountCommandDAO = {
     insertAccount(account) {
@@ -8,4 +9,9 @@ export const accountCommandDAO = {
         let index = ACCOUNT_LIST.findIndex(acc => acc.id===account.id);
         ACCOUNT_LIST[index]=account;
     },
+    restore(id){
+        const account = ACCOUNT_LIST.find(acc => acc.id===id);
+        const newAccount = new Account(account.id, account.lastName, account.firstName, account.creationDate);
+        return newAccount;
+    }
 };
