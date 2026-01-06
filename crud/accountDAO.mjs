@@ -3,7 +3,7 @@ import { ACCOUNT_LIST } from "./database.mjs";
 export const accountDAO = {
   insertAccount(account) {
     ACCOUNT_LIST.push(account);
-    console.log(ACCOUNT_LIST);
+    //console.log(ACCOUNT_LIST);
   },
   retrieveAccountList() {
     const LIST = ACCOUNT_LIST.map(({ creationDate, ...reste }) => reste);
@@ -11,15 +11,19 @@ export const accountDAO = {
     return LIST;
   },
   updateAccount(account) {
-    let ACC = ACCOUNT_LIST.find(acc => acc.id===account.id);
+    //let ACC = ACCOUNT_LIST.find(acc => acc.id===account.id);
     //console.log(ACC);
-    ACC.firstName=account.firstName;
-    ACC.lastName=account.lastName;
-    console.log(ACCOUNT_LIST);
+    //ACC.firstName=account.firstName;
+    //ACC.lastName=account.lastName;
+    
+    let index = ACCOUNT_LIST.findIndex(acc => acc.id===account.id);
+    ACCOUNT_LIST[index]=account;
+    //console.log(ACCOUNT_LIST);
   },
   retrieveAccount(id) {
     const ACC = ACCOUNT_LIST.find(acc => acc.id===id);
-    return ACC
+    let name = ACC.firstName + " " + ACC.lastName;
+    return {id : ACC.id, name : name};
   },
 };
 
