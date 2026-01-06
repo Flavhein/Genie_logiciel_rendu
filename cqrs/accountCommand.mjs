@@ -1,6 +1,6 @@
 import { accountCommandDAO } from "./accountCommandDAO.mjs"
 import {Account} from "./account.mjs";
-import { accountQueryDAO } from "./accountQueryDAO.mjs";
+import { cacheDAO } from "./cacheDAO.mjs";
 
 export const accountCommand = {
     saveAccount(id, lastName, firstName) {
@@ -10,7 +10,7 @@ export const accountCommand = {
         account.firstName=firstName;
         account.lastName=lastName;
         const {creationDate, ...reste}=account;
-        accountQueryDAO.updateCache(id,name);
+        cacheDAO.updateCache(id,name);
         accountCommandDAO.updateDBQ(reste);
         accountCommandDAO.updateAccount(account);
     },
@@ -19,7 +19,7 @@ export const accountCommand = {
 
         const newAccount = new Account(null, lastName, firstName);
         const {creationDate, ...reste}=newAccount;
-        accountQueryDAO.insertCache(newAccount.id,name);
+        cacheDAO.insertCache(newAccount.id,name);
         accountCommandDAO.insertDBQ(reste);
         return accountCommandDAO.insertAccount(newAccount);
     },

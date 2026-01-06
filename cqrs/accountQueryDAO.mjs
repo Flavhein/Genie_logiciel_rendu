@@ -13,10 +13,4 @@ export const accountQueryDAO = {
         //return {id : ACC.id, name : name};
         return accountCache[id];
     },
-    insertCache(id,name){
-        accountCache[id]=name;
-    },
-    updateCache(id,name){
-        accountCache[id]=name;
-    }
 };
