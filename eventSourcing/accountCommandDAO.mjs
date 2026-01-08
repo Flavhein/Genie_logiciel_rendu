@@ -5,14 +5,15 @@ import { eventStore } from "./eventStore.mjs"
 export const accountCommandDAO = {
     restore(id){
         const events = eventStore.getEventsByAccountId(id);
-        let newAccount = new Account(id,events[0].payload.lastName,events[0].payload.firstName,events[0].payload.creationDate);
-        for (let i =1;i<events.length;i++) {
-                if (events[i].name = "accountUpdated"){
-                    newAccount.firstName = events[i].payload.firstName;
-                    newAccount.lastName = events[i].payload.lastName;
-                }
-        }
-        return newAccount;
+        return events.reduce((newAccount, event)=>{
+            if (event.name === "accountAdded"){
+                newAccount=new Account(id,event.payload.lastName,event.payload.firstName,event.payload.creationDate);
+            }
+            if (event.name === "accountUpdated"){
+                newAccount.firstName = event.payload.firstName;
+                newAccount.lastName = event.payload.lastName;
+            }
+            return newAccount})
     },
     insertDBQ(account){
         queryDatabase.accountSummaryList.push(account);
