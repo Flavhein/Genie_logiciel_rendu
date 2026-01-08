@@ -17,7 +17,6 @@ export const accountCommandDAO = {
         //const newAccount = new Account(account.id, account.lastName, account.firstName, account.creationDate);
         //return newAccount;
         const events = eventStore.getEventsById(id);
-        console.log(events);
         let newAccount = new Account(id,events[0].payload.lastName,events[0].payload.firstName,events[0].payload.creationDate);
         for (let i =1;i<events.length;i++) {
                 if (events[i].name = "accountUpdated"){
