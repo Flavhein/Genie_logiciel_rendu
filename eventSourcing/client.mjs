@@ -12,3 +12,5 @@ accountCommand.saveAccount(idP, "GONCALVES", "Andre");
 
 let acc = accountQuery.getAccount(idP);
 console.log(acc)
+
+console.log(accountQuery.getEventList());

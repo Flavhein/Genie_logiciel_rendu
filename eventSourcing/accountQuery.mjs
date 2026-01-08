@@ -7,4 +7,7 @@ export const accountQuery = {
     getAccount(id) {
         return accountQueryDAO.retrieveAccount(id);
     },
+    getEventList(){
+        return accountQueryDAO.retrieveListEvents();
+    }
 };
