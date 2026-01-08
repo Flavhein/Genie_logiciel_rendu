@@ -7,11 +7,7 @@ export const eventStore = {
     getEventList(){
         return this.eventList;
     },
-    //getNiemeEvent(id,n){
-    //    return this.eventList.filter(e => e.id === id)
-    //    .sort((a, b) => new Date(a.date) - new Date(b.date))[n - 1] ?? null;
-    //}
-    getEventsById(id){
+    getEventsByAccountId(id){
         return this.eventList.filter(e => e.accountId === id);
     }
 };
