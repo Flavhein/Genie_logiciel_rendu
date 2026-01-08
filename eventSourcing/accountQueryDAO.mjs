@@ -9,7 +9,7 @@ export const accountQueryDAO = {
     retrieveAccount(id) {
         return accountCache[id];
     },
-    retrieveListEvents(){
+    retrieveListEvent(){
         return eventStore.getEventList();
     }
 };

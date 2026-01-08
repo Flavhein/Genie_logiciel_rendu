@@ -14,7 +14,6 @@ export const accountCommand = {
         const {creationDate, ...reste}=account;
         cacheDAO.updateCache(id,name);
         accountCommandDAO.updateDBQ(reste);
-        //accountCommandDAO.updateAccount(account);
         eventStore.addEvent(new Event(account.id,{lastName,firstName},"accountUpdated"));
     },
     addAccount(lastName, firstName) {
@@ -24,7 +23,6 @@ export const accountCommand = {
         const {creationDate, ...reste}=newAccount;
         cacheDAO.insertCache(newAccount.id,name);
         accountCommandDAO.insertDBQ(reste);
-        //return accountCommandDAO.insertAccount(newAccount);
         eventStore.addEvent(new Event(newAccount.id,{lastName, firstName, creationDate : newAccount.creationDate},"accountAdded"));
     },
 };

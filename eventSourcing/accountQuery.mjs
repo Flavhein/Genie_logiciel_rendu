@@ -8,6 +8,6 @@ export const accountQuery = {
         return accountQueryDAO.retrieveAccount(id);
     },
     getEventList(){
-        return accountQueryDAO.retrieveListEvents();
+        return accountQueryDAO.retrieveListEvent();
     }
 };
